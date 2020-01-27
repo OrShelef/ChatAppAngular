@@ -29,6 +29,7 @@ import {
 
 } from '@angular/material';
 
+import {AngularComponent} from './angular.component';
 @NgModule({
    imports: [
       CommonModule,
@@ -54,7 +55,8 @@ import {
       MatMenuModule,
       MatDialogModule,
       MatSnackBarModule,
-      MatTabsModule
+      MatTabsModule,
+  
    ],
    exports: [
       MatButtonModule,
@@ -78,7 +80,8 @@ import {
       MatMenuModule,
       MatDialogModule,
       MatSnackBarModule,
-      MatTabsModule
+      MatTabsModule,
+      
    ],
    providers: [
       MatDatepickerModule,

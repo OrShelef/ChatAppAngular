@@ -8,5 +8,5 @@ import {slideInAnimation} from './Util/route-animation';
   animations: [ slideInAnimation ]
 })
 export class AppComponent {
-  title = 'TodosApp';
+  title = 'ChatApp';
 }
