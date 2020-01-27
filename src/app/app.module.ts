@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AngularModule} from './angular/angular.module';
+import {AngularComponent} from './angular/angular.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,9 +23,10 @@ import { ChooseUserDialogComponent } from './ChooseUserDialog/ChooseUserDialog.c
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 import { ContactListComponent } from './ContactList/ContactList.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
+const config: SocketIoConfig = { url: 'https://localhost:8080/', options: {} };
 @NgModule({
    declarations: [
+    AngularComponent,
       AppComponent,
       LoginComponent,
       HomeComponent,
@@ -38,9 +40,10 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
       ContactListComponent
    ],
    imports: [
+    AngularModule,
       FormsModule,
       FlexLayoutModule,
-      AngularModule,
+     
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,

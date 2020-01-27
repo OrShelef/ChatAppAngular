@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit ,AfterViewInit{
 
   
   constructor(
-    private _bottomMenu:MatBottomSheet,
-    private UserService:UsersService,
-    private messagesService:MessagesService,
+    public _bottomMenu:MatBottomSheet,
+    public UserService:UsersService,
+    public messagesService:MessagesService,
     public dialog: MatDialog,
     private router:Router,
     private _scrollToService: ScrollToService,
