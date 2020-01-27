@@ -1,0 +1,34 @@
+
+
+
+.main{
+    width:50vw;
+    height: 70vh;
+   background-color: white;
+    
+}
+
+.btn{
+    width: 50%;
+    height: 50%;
+    transition: all 0.2s ease-in-out 0.1s;
+   
+    
+}
+
+
+.btn:hover{
+    transform: translateY(-7px);
+}
+
+.inputSize{
+    width: 60%;
+    height: 60%;  
+}
+
+.header{
+    letter-spacing: 3px;
+   font-size: 30px;
+    padding: 20px;
+}
+

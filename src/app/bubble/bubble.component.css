@@ -1,0 +1,64 @@
+
+.highlight{
+    background-color: yellow;
+}
+
+label{
+    overflow-wrap: break-word;
+}
+
+
+
+.mask{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -59%);
+    width: 200px;
+    height: 200px;
+   border-radius: 0%;
+  
+}
+.mask:hover{
+    background-color:#2f2c2cd1;
+}
+
+#mask-on-hover .hide{
+opacity: 0;
+transition: all 0.3s ease-out 0.2s;
+
+}
+.hide{
+    margin-left: -20%;
+    font-size:80px;
+    color:white;
+}
+#mask-on-hover:hover .hide{
+    opacity: 1;
+    transform: translateY(-7px)
+    }
+.mask-bg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-color: #211c1c8c;
+    width: 200px;
+    height: 200px;  
+}
+
+#fab +.fab-list:not(:hover){
+    visibility: hidden;
+    opacity: 0;
+transition: all 0.3s ease-out 0.2s;
+}
+#fab:hover +.fab-list{
+    visibility: visible;
+    opacity: 1;
+    transform: translatey(-7px)
+}
+
+.fab-list:hover{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-7px)
+}

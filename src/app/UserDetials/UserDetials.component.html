@@ -1,0 +1,17 @@
+
+
+<div fxFlex="100%" fxFlexFill  fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <img style="transform:translateY(-90px)" mat-card-avatar src={{user.image}} alt="Photo of a Shiba Inu">
+    <h1 style="transform:translateY(-90px)">{{user.username}}</h1>
+    <div style="transform:translateY(-90px);" fxFlexAlign="start"> 
+          <p>Name: <span>{{user.name}}</span></p>
+          <p>email: <span>{{user.email}}</span></p>
+          <p>address: <span>{{user.address.city}} {{user.address.street}} {{user.address.suite}}</span></p>
+          <p>phone: <span>{{user.phone}}</span></p>
+          <p>website: <span>{{user.website}}</span></p>
+      </div>
+      <div style="transform:translateY(-90px);" mat-dialog-actions> 
+        <button mat-button [mat-dialog-close]="user.name" cdkFocusInitial>Back</button>
+      </div>
+</div>
+

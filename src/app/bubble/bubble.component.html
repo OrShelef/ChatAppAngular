@@ -1,0 +1,139 @@
+
+
+
+
+<div [ngClass]="{'animated slideOutLeft': isDeleted}" id={{msg.id}} *ngIf="LoggedUser && LoggedUser.id===msg.userId && isBigScreen" style="margin:10px;" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+        <img mat-card-avatar src={{user.image}} alt="" class="animated flip">
+    
+    <div id="fab" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="5px">
+ 
+        <mat-card  style="min-width: 200px;padding-top: 2px;max-width: 350px;" class="backgroundColor" *ngIf="user">
+            <label style="font-size:10px;opacity:.6;" matLine>{{user.username}}</label>
+            <br/>
+            <div *ngIf="msg.msgType==1" > 
+                <img src={{msg.text}} style="height:200px;width:200px;" alt="">
+               
+                    <button (click)="openImageViewer()" id="mask-on-hover" class="mask " mat-icon-button>
+                    <mat-icon   aria-label="label" class="hide">zoom_in</mat-icon>
+                </button>
+                
+            </div>
+                     
+            <label *ngIf="msg.msgType==0" [class.highlight]="msg.IsSearched" matLine>{{msg.text}}</label> 
+            <br/>
+            <label style="float: right;font-size:10px;opacity:.6;margin-top:5px;" for="">{{msg.time}}</label>
+        </mat-card> 
+        <label style="font-size: 12px;opacity: .5;" for="">{{msg.date}}</label>
+      
+      </div>
+      <div fxLayout="column" class="fab-list" fxLayoutAlign="space-between start" fxLayoutGap="3px"> 
+        
+            <button mat-icon-button (click)="onDelete()">
+                <mat-icon color="primary" aria-label="label">delete</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon color="primary" (click)="OnCopy()" aria-label="label">file_copy</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon color="primary" (click)="openForwardMsg()" aria-label="label">subdirectory_arrow_right</mat-icon>
+            </button>
+        </div> 
+</div>
+<div [ngClass]="{'animated slideOutRight': isDeleted}" *ngIf="LoggedUser && LoggedUser.id===msg.otherId && isBigScreen" style="margin:10px;" fxLayout="row-reverse" fxLayoutAlign="start start" fxLayoutGap="10px">
+        <img mat-card-avatar  src={{user.image}} alt="" class="animated flip">
+    
+        <div  id="fab" fxLayout="column" fxLayoutAlign="end end" fxLayoutGap="5px">
+     
+            <mat-card style="min-width: 200px;padding-top: 2px;max-width: 49%;"  *ngIf="user">
+                <label style="font-size:10px;opacity:.6;" matLine>{{user.username}}</label>
+                <br/>          
+                <div *ngIf="msg.msgType==1" > 
+                        <img src={{msg.text}} style="height:200px;width:200px;" alt="">
+                       
+                            <button (click)="openImageViewer()" id="mask-on-hover" class="mask " mat-icon-button>
+                            <mat-icon   aria-label="label" class="hide">zoom_in</mat-icon>
+                        </button>
+                        
+                    </div>  
+                <label *ngIf="msg.msgType==0" [class.highlight]="msg.IsSearched" matLine>{{msg.text}}</label> 
+                <br/>
+                <label style="float: right;font-size:10px;opacity:.6;margin-top:5px;" for="">{{msg.time}}</label>
+            </mat-card> 
+            <label style="font-size: 12px;opacity: .5;" for="">{{msg.date}}</label>
+          
+          </div>
+          <div fxLayout="column" class="fab-list" fxLayoutAlign="space-between start" fxLayoutGap="3px"> 
+        
+                <button mat-icon-button (click)="onDelete()">
+                    <mat-icon color="primary" aria-label="label">delete</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon color="primary" (click)="OnCopy()" aria-label="label">file_copy</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon color="primary" (click)="openForwardMsg()" aria-label="label">subdirectory_arrow_right</mat-icon>
+                </button>
+            </div> 
+</div>
+
+
+<div [ngClass]="{'animated slideOutLeft': isDeleted}" id={{msg.id}} *ngIf="LoggedUser && LoggedUser.id===msg.userId && !isBigScreen" style="margin:10px;" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="0px"> 
+<div id="fab">
+
+    <mat-card (click)="onMobileClick()"  style="width: 200px;padding-top: 7px;padding-bottom: 7px;max-width: 200px;" class="backgroundColor" *ngIf="user">
+     <div style="display:block !important;flex-direction: column;box-sizing: border-box;place-content: flex-start;align-items: flex-start;">
+        <div *ngIf="msg.msgType==1" > 
+            <img src={{msg.text}} style="height:200px;width:200px;" alt="">
+           
+                <button (click)="openImageViewer()" id="mask-on-hover" class="mask " mat-icon-button>
+                <mat-icon   aria-label="label" class="hide">zoom_in</mat-icon>
+            </button>
+            
+        </div>                
+        <label fxFlex="90" *ngIf="msg.msgType==0" [class.highlight]="msg.IsSearched" matLine>{{msg.text}}</label>    
+        <div  style="transform: translateX(150px);" fxFlex="10">   
+            <label  style="font-size:10px;opacity:.6;margin-top:5px;" for="">{{msg.time}}</label>    
+        </div>
+
+     </div>      
+    </mat-card> 
+  </div>
+ 
+</div>
+<div [ngClass]="{'animated slideOutRight': isDeleted}" *ngIf="LoggedUser && LoggedUser.id===msg.otherId && !isBigScreen" style="margin:10px;" fxLayout="row-reverse" fxLayoutAlign="start start" fxLayoutGap="10px">
+    <img mat-card-avatar  src={{user.image}} alt="" class="animated flip">
+
+    <div  id="fab" fxLayout="column" fxLayoutAlign="end end" fxLayoutGap="5px">
+ 
+        <mat-card style="min-width: 200px;padding-top: 2px;max-width: 49%;"  *ngIf="user">
+            <label style="font-size:10px;opacity:.6;" matLine>{{user.username}}</label>
+            <br/>          
+            <div *ngIf="msg.msgType==1" > 
+                    <img src={{msg.text}} style="height:200px;width:200px;" alt="">
+                   
+                        <button (click)="openImageViewer()" id="mask-on-hover" class="mask " mat-icon-button>
+                        <mat-icon   aria-label="label" class="hide">zoom_in</mat-icon>
+                    </button>
+                    
+                </div>  
+            <label *ngIf="msg.msgType==0" [class.highlight]="msg.IsSearched" matLine>{{msg.text}}</label> 
+            <br/>
+            <label  style="float: right;font-size:10px;opacity:.6;margin-top:5px;" for="">{{msg.time}}</label>
+        </mat-card> 
+        <label style="font-size: 12px;opacity: .5;" for="">{{msg.date}}</label>
+      
+      </div>
+      <div fxLayout="column" class="fab-list" fxLayoutAlign="space-between start" fxLayoutGap="3px"> 
+    
+            <button mat-icon-button (click)="onDelete()">
+                <mat-icon color="primary" aria-label="label">delete</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon color="primary" (click)="OnCopy()" aria-label="label">file_copy</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon color="primary" (click)="openForwardMsg()" aria-label="label">subdirectory_arrow_right</mat-icon>
+            </button>
+        </div> 
+</div>
+

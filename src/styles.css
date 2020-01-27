@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~animate.css/animate.min';
+
+html, body { height: 100%;overflow-x: unset; max-width: 100%;max-height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fullscreen{
+   
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://support.delta.chat/uploads/default/original/1X/768ded5ffbef90faa338761be1c5633d91cc35e3.jpeg");
+    background-repeat:repeat;
+   
+}
+
+.center{
+    position: absolute;
+  
+    left: 50%;
+    transform: translate(-50%,15%);
+}
+.backgroundColor
+{
+    background-color: #B2DFDB;
+}
+.mat-card-avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .custom-dialog > mat-dialog-container{
+   
+    overflow:unset;
+
+}
+
+.imageViewer > mat-dialog-container{
+  overflow:unset;
+ background-color: rgba(0, 0, 0, 0);
+box-shadow: none;
+}
+.rounded {
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #B2DFDB;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #009688;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #004D40;
+  }
+
+  h3{
+  
+    color:   #37474F;
+    font-weight: 500;
+    }
+
+    .mat-menu-item{
+      color: #004D40;
+      font-weight: 500;
+    }
+ 
+     

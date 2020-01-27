@@ -1,0 +1,123 @@
+
+
+ <mat-drawer-container  autosize>
+<div  fxLayout="row wrap" class="fullscreen">
+<div fxFlex="20"  fxHide.sm="true" fxHide.xs="true" class="contents">
+    <div  class="list" gdRows="30% 70%" fxLayout="row" fxLayoutGap="0px">
+        <div *ngIf="UserService.currentUser" fxLayout="column" fxFlexAlign="center" fxLayoutAlign="center center" fxLayoutGap="0px" >
+             <img class="rounded"  fxFlexOffset="20px" src={{UserService.currentUser.image}} alt="">
+             <label for="" class="header">{{UserService.currentUser.username}}</label>
+        </div>      
+        <app-ContactList [isBigScreen]="true" (OnSelectionChanged)="OnSelectionChanged($event)">
+
+        </app-ContactList>
+    </div>
+      
+</div>
+<div fxFlex="80"  fxFlex.sm="100" fxFlex.xs="100" (dragover)="onFileOver()" gdRows="10% 80% 10%" fxLayout="row" fxLayoutGap="0px">
+        <div class="topBar" fxFlex="100%" fxFlexFill>
+         <mat-toolbar *ngIf="selectedItem" color="primary" class="mat-elevation-z6">
+             <mat-toolbar-row>
+                    <button (click)="drawer.toggle()" fxHide.gt-sm="true" mat-icon-button>
+                            <mat-icon color="white" aria-label="label">keyboard_backspace</mat-icon>
+                        </button>
+                        <img mat-card-avatar src={{selectedItem.image}} alt="">
+                        <span ></span>
+                        <div style="margin-left:15px;">
+                               <h3 style="padding-top:20px;margin-block-start: -10px;color:white;"> {{selectedItem.username}} </h3>
+                               <p style="font-size:15px;opacity:.9;padding-bottom: 5px;">
+                                  conected
+                               </p>
+                          </div> 
+                          <span style="flex: 1 1 auto;"></span>
+                               <div *ngIf="IsSearch">
+                                   <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px">
+                                      <button mat-button (click)="FinishSearch()">Finish  <mat-icon aria-label="label">search</mat-icon> </button>
+                                      
+                                       <button mat-icon-button (click)="PreviousSaerch()">
+                                           <mat-icon aria-label="label">arrow_downward</mat-icon>
+                                       </button>
+                                       <label style="color:yellow" for="">{{CurrentSearchPosition+1}}/{{TotalSearchResults}}</label>
+                                       <button mat-icon-button (click)="NextSearch()">
+                                               <mat-icon aria-label="label">arrow_upward</mat-icon>
+                                           </button>
+                                   </div>
+                               </div>
+                               <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+                               <mat-menu #menu="matMenu">
+                                       <button  mat-menu-item (click)="openDialog()">                     
+                                               <mat-icon class="menuIcon" aria-label="label">supervised_user_circle</mat-icon>
+                                               User Details
+                                           </button>
+                                       <button  mat-menu-item (click)="OnSearch()">                      
+                                                   <mat-icon class="menuIcon"  aria-label="label">search</mat-icon>
+                                                   Search
+                                       </button>
+                                       <button  mat-menu-item>                     
+                                               <mat-icon class="menuIcon" aria-label="label">volume_off</mat-icon>
+                                               Mute
+                                       </button>
+                                       <button (click)="OnLogout()" mat-menu-item>                     
+                                               <mat-icon class="menuIcon" aria-label="label">compare_arrows</mat-icon>
+                                               Disconnect
+                                       </button>
+                               </mat-menu>
+             </mat-toolbar-row>
+            
+             
+         </mat-toolbar>
+        </div>
+    <div  class="msgList " #scroller  >
+       
+           
+            <li  *ngFor="let msg of Messages" #item >
+                <app-bubble (onMobileClicked)="onMobileClicked($event)" (onDeleted)="onDelete($event)" (onForward)="onForward($event)" [msg]="msg"></app-bubble>
+            </li>
+    
+    </div>  
+    <div class="drop" *ngIf="selectedItem && isDragOver" (onFileLeave)="onFileLeave()" appDragDrop  (onFileDropped)="uploadFile($event)">
+       
+            <div  class="itemsCenter">
+                <p  style="font-size:50px;">Drop your files here</p>
+            
+                    <mat-icon style="font-size:80px;margin-left: 200px" class="animated wobble infinite slower" aria-label="label">cloud_upload</mat-icon>
+                    
+           </div>
+      
+        
+    </div>
+     
+    <div *ngIf="selectedItem " class="bottomBar">
+        <mat-card  fxFlex="100%" fxFlexFill style="padding:0px;"> 
+            <div style="margin-top: 10px;margin-left:15px;" fxLayout="row" fxLayoutAlign="center center"  fxLayoutGap="0px">
+                    <button fxFlex="5"  fxFlex.sm="8" fxFlex.xs="10" color="primary" mat-icon-button  (click)="open()"><mat-icon>attach_file</mat-icon></button>
+                    <button fxFlex="5"  fxFlex.sm="8" fxFlex.xs="10" color="accent" mat-icon-button>
+                        <mat-icon (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" (emojiPickerSelect)="handleSelection($event)" aria-label="label">tag_faces</mat-icon>
+                    </button>
+                    <mat-form-field fxFlex="82"  fxFlex.sm="72" fxFlex.xs="60" floatLabel="never" >
+                        <input  #text matInput [(ngModel)]="textValue" placeholder="Enter your text here.." (keyup.enter)="onSend(text.value)">              
+                    </mat-form-field>
+                    <button fxFlex="8"  fxFlex.sm="12" fxFlex.xs="20" (click)="onSend(text.value)" mat-icon-button style="padding-left:10px;">
+                            <mat-icon color="accent" matSuffix >send</mat-icon>
+                    </button>
+            </div>             
+        </mat-card>
+    </div>
+   
+            
+         
+     
+</div>
+</div>
+<mat-drawer #drawer  mode="over" hasBackdrop="true">
+    <div  class="list" gdRows="30% 70%" fxLayout="row" fxLayoutGap="0px">
+        <div *ngIf="UserService.currentUser" fxLayout="column" fxFlexAlign="center" fxLayoutAlign="center center" fxLayoutGap="0px" >
+             <img class="rounded"  fxFlexOffset="20px" src={{UserService.currentUser.image}} alt="">
+             <label for="" class="header">{{UserService.currentUser.username}}</label>
+        </div>  
+    <app-ContactList [isBigScreen]="false" (OnSelectionChanged)="OnSelectionChanged($event)">
+
+            </app-ContactList>
+    </div>
+ </mat-drawer>
+</mat-drawer-container>

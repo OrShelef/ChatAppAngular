@@ -1,0 +1,25 @@
+
+
+
+<div class="fullscreen">
+<mat-card class="main center mat-elevation-z8">
+ <div fxFlexFill fxLayout="row wrap" gdRows="40% 20% 20% 20%" fxLayoutGap="10px">
+   <label class="header" for="">What's App</label>
+  <mat-form-field appearance="outline" class="inputSize animated fadeInDown" gdGridAlign="center stretch">
+      <mat-label>User Name</mat-label>
+      <input #user [(ngModel)]="userName" matInput placeholder="Enter your user name">
+      <mat-icon color="primary" matSuffix>account_circle</mat-icon>
+      <mat-hint>Required</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="inputSize animated fadeInUp" gdGridAlign="center stretch">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Enter your password">
+      <mat-icon color="primary" matSuffix>lock</mat-icon>
+      <mat-hint>Required</mat-hint>
+  </mat-form-field>
+  <button (click)="OnLogin()" class="btn animated bounceIn delay-1s" gdGridAlign="center stretch" mat-button color="accent" mat-raised-button>
+      Login<mat-icon color="white" matSuffix>check_circle_outline</mat-icon></button>
+ </div>
+  
+</mat-card>
+</div>

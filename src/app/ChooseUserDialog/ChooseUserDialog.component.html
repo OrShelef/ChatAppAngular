@@ -1,0 +1,42 @@
+
+<h1 mat-dialog-title>Forward to...</h1>
+<mat-form-field mat-dialog-title style="width:80%;transform: translateX(10%);">
+        <input cdkFocusInitial (input)="onSearchContactChange($event.target.value)" autocomplete="off" matInput placeholder="Search">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+<div mat-dialog-content style="height:50%">
+    
+           
+                <mat-selection-list   #shoes aria-multiselectable="false" >
+                    <mat-list-option  *ngFor="let user of Users" value="{{user.id}}" style="margin:8px 0px;" aria-selected="true"> 
+                    
+                                
+                                 <img matListAvatar src={{user.image}} alt="">
+                                 <div matListAvatar class="connected" [ngClass]="{disconnected: user.id>3}"></div>
+                                 <div fxLayout="column" gdColumns="80% 20%" fxLayoutAlign="center center">
+                                        <div>
+                                                <h3 > {{user.username}} </h3>
+                                                <p *ngIf="user.LastMessage" style="opacity:.6;font-size: 13px;">
+                                                        {{user.LastMessage}}
+                                                </p>
+                                           </div> 
+                                    
+                                               <button *ngIf="user.UnreadMessages>0" color="accent" class="mat-elevation-z0" mat-button mat-raised-button style="margin-left:-10px;border-radius: 20px;">
+                                            {{user.UnreadMessages}}
+                                            </button>
+                            
+                                 </div>
+                                   
+                            
+                           
+                    </mat-list-option>
+                </mat-selection-list>
+  
+   
+</div>
+<div mat-dialog-actions style="flex-direction:row-reverse;"> 
+ 
+  <button mat-button color="primary" [mat-dialog-close]="data" >Send   <mat-icon aria-label="label">send</mat-icon></button>
+ 
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>
