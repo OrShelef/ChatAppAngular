@@ -104,7 +104,7 @@ io.on("connection", socket => {
         res.send(result);
     });   
  });
- app.get('/', (req, res) =>  res.sendFile((path.join(__dirname,'../../dist/TodosApp/index.html'))));
+ app.all('*', (req, res) =>  res.status(200).sendFile((path.join(__dirname,'../../dist/TodosApp/index.html'))));
 app.listen(8080);
 console.log((path.join(__dirname,'../../dist/TodosApp/index.html')));
 
