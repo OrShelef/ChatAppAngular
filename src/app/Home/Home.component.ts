@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit ,AfterViewInit{
     public dialog: MatDialog,
     private router:Router,
     private _scrollToService: ScrollToService,
-    private socket:Socket)
+    )
      { 
 
   }

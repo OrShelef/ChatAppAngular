@@ -15,7 +15,7 @@ export class MessagesService {
  
 constructor(private http:HttpClient,
   private UsersService:UsersService,
-  private socket: Socket,
+ 
   private config:ConfigService,
   private notifyService:PushNotificationsService){
     
