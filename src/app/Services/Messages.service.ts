@@ -41,9 +41,12 @@ Send(msg:Message)
     msg.text="";
 
   }
-  this.socket.emit("SendMessage",msg);
-  msg.text=temp;
-  this.messages.push(msg);
+  this.http.post(this.config.url+"SendMessage/",msg).subscribe(data=>{
+    msg.text=temp;
+    this.messages.push(msg);
+  },erorr=>console.log(erorr));    
+  //this.socket.emit("SendMessage",msg); 
+  
   
 }
 

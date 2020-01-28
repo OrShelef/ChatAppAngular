@@ -49,7 +49,7 @@ const config: SocketIoConfig = { url: 'https://chat-app-backend-chatappbackend.a
       BrowserAnimationsModule,
       HttpClientModule,
       ScrollToModule.forRoot(),
-      SocketIoModule.forRoot(config),
+     
       PushNotificationsModule,
       NgxEmojiPickerModule.forRoot()
    ],
