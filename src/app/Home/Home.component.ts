@@ -157,7 +157,7 @@ export class HomeComponent implements OnInit ,AfterViewInit{
    
     
    
-    this.socket.on("MessageFromServer_"+this.UserService.currentUser.id,msg=>
+   /* this.socket.on("MessageFromServer_"+this.UserService.currentUser.id,msg=>
   {
   
       if(this.selectedItem && this.selectedItem.id==msg.userId)
@@ -166,7 +166,7 @@ export class HomeComponent implements OnInit ,AfterViewInit{
           this.Messages.push(msg);
           this.messagesService.notify(msg,this.selectedItem);
         }
-  });
+  });*/
   }
 
 

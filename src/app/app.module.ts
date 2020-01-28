@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { UserDetialsComponent } from './UserDetials/UserDetials.component';
 import { SearchDialogComponent } from './SearchDialog/SearchDialog.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+//import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { PushNotificationsModule } from 'ng-push'; 
 import { DragDropDirective } from './DragDrop.directive';
 import { ImageViewerComponent } from './ImageViewer/ImageViewer.component';
@@ -23,7 +23,7 @@ import { ChooseUserDialogComponent } from './ChooseUserDialog/ChooseUserDialog.c
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 import { ContactListComponent } from './ContactList/ContactList.component';
 
-const config: SocketIoConfig = { url: 'https://chat-app-backend-chatappbackend.apps.us-east-1.starter.openshift-online.com:4444/', options: {} };
+//const config: SocketIoConfig = { url: 'https://chat-app-backend-chatappbackend.apps.us-east-1.starter.openshift-online.com:4444/', options: {} };
 @NgModule({
    declarations: [
     AngularComponent,
