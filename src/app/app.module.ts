@@ -23,7 +23,7 @@ import { ChooseUserDialogComponent } from './ChooseUserDialog/ChooseUserDialog.c
 import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 import { ContactListComponent } from './ContactList/ContactList.component';
 
-const config: SocketIoConfig = { url: 'https://chat-app-backend-chatappbackend.apps.us-east-1.starter.openshift-online.com:8080/', options: {} };
+const config: SocketIoConfig = { url: 'https://chat-app-backend-chatappbackend.apps.us-east-1.starter.openshift-online.com:4444/', options: {} };
 @NgModule({
    declarations: [
     AngularComponent,
