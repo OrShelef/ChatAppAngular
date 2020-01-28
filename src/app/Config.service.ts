@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConfigService {
 
-url:string="http://chat-app-backend-git-chatappbackend.apps.us-east-1.starter.openshift-online.com:8080/api/";
+url:string="https://chat-app-backend-chatappbackend.apps.us-east-1.starter.openshift-online.com:8080/api/";
 
 constructor()
 {
